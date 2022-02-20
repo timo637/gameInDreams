@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelGameOver;
 
     public GameObject[] levels;
+    public bool inTheBed = false;
 
     public static GameManager Instance { get; private set; }
 
@@ -109,6 +110,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown("f") && inTheBed)
+        {
+            Destroy(_currentLevel);
+            _currentLevel = Instantiate(levels[Level + 1]);
+            Level += 1;
+
+        }
+
         switch (_state)
         {
             case State.MENU:
