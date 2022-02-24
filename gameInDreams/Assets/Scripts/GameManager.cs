@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject playerPrefab;
+    public GameObject bedPrefab;
     public Text levelText;
     public Text livesText;
+    public Text notificationText;
 
     public GameObject panelMenu;
     public GameObject panelPlay;
@@ -16,13 +18,14 @@ public class GameManager : MonoBehaviour
     public GameObject panelGameOver;
 
     public GameObject[] levels;
-    public bool inTheBed = false;
+    public bool nearTheBed = false;
 
     public static GameManager Instance { get; private set; }
 
     public enum State { MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER };
     State _state;
     GameObject _currentLevel;
+    GameObject _currentPlayer;
     bool _isSwitchingState;
 
     private int _level;
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
                 panelPlay.SetActive(true);
                 Level = 1;
                 LivesRemaining = 3;
-                Instantiate(playerPrefab);
+                _currentPlayer = Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
@@ -98,7 +101,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    _currentLevel = Instantiate(levels[Level]);
+                    _currentLevel = Instantiate(levels[Level-1]);
                     SwitchState(State.PLAY);
                 }
                 break;
@@ -111,12 +114,27 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("f") && inTheBed)
+        if (nearTheBed)
+        {
+            notificationText.text = "Press 'F' to go to sleep.";
+        }
+        else
+        {
+            notificationText.text = "";
+        }
+
+        if (Input.GetKeyDown("f") && Level<levels.Length && nearTheBed)
         {
             Destroy(_currentLevel);
-            _currentLevel = Instantiate(levels[Level + 1]);
+            _currentLevel = Instantiate(levels[Level]);
             Level += 1;
+        }
 
+        if (Input.GetKeyDown("g") && Level != 1)
+        {
+            Destroy(_currentLevel);
+            _currentLevel = Instantiate(levels[Level-2]);
+            Level -= 1;
         }
 
         switch (_state)
@@ -126,6 +144,13 @@ public class GameManager : MonoBehaviour
             case State.INIT:
                 break;
             case State.PLAY:
+                if( Vector3.Distance(_currentPlayer.transform.position, _currentLevel.transform.GetChild(_currentLevel.transform.childCount - 1).position) < 3f) {
+                    nearTheBed = true;
+                }
+                else
+                {
+                    nearTheBed = false;
+                };
                 if (LivesRemaining == 0)
                 {
                     SwitchState(State.GAMEOVER);
