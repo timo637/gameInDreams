@@ -64,7 +64,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 16183
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   changeTo: 5
   ladderLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 128
 --- !u!114 &7498086608325857857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   changeTo: 8
   ledgeLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   pushFrom: {x: 0, y: 0, z: 0}
   canGrabLedge: 1
 --- !u!114 &1080257021744692809
@@ -291,7 +291,7 @@ MonoBehaviour:
   changeTo: 7
   vaultLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
 --- !u!114 &2587270378830935109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   changeTo: 10
   topWaterLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
   cameraMovement: {fileID: 0}
   waterHelpers: []
 --- !u!114 &7146061611896877576
