@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
     public float crouchHeight = 1f;
     public PlayerInfo info;
     [SerializeField]
-    private float sprintTime = 6f;
+    private float sprintTime = 999f;
     [SerializeField]
-    private float sprintReserve = 4f;
+    private float sprintReserve = 999f;
     [SerializeField]
     private float sprintMinimum = 2f;
 

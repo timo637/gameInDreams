@@ -303,8 +303,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3841
   crouchHeight: 1
-  sprintTime: 6
-  sprintReserve: 4
+  sprintTime: 999
+  sprintReserve: 999
   sprintMinimum: 2
 --- !u!114 &2453986428590421080
 MonoBehaviour:
