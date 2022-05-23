@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 02f3eaae73108a14d9c6e0f7ade2fc69
+guid: a91a144a000e77e47b77a369f66496b8
 ModelImporter:
-  serializedVersion: 20200
-  internalIDToNameTable: []
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -4379138895778929148
+    second: Door|DoorAction
+  - first:
+      74: -4416500839048991068
+    second: Door|DoorAction.001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -14,6 +20,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -43,6 +50,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -54,6 +62,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
