@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     State _state;
     GameObject _currentLevel;
     GameObject _currentPlayer;
+    
     bool _isSwitchingState;
 
     private int _level;
@@ -90,6 +91,8 @@ public class GameManager : MonoBehaviour
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
+                _currentPlayer.transform.position = _currentPlayer.transform.position + GameObject.FindWithTag("spawn").transform.position;
+                Debug.Log(_currentPlayer.transform.position);
                 break;
             case State.LEVELCOMPLETED:
                 panelLevelCompleted.SetActive(true);
@@ -102,6 +105,10 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     _currentLevel = Instantiate(levels[Level-1]);
+                    Debug.Log(_currentPlayer.transform.position);
+                    Debug.Log(GameObject.FindWithTag("spawn").transform.position);
+                    //_currentPlayer.transform.position = _currentPlayer.transform.position + GameObject.FindWithTag("spawn").transform.position;
+                    //Debug.Log(_currentPlayer.transform.position);
                     SwitchState(State.PLAY);
                 }
                 break;

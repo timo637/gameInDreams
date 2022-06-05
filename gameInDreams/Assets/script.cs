@@ -8,9 +8,12 @@ public class script : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey("e"))
+        if(Input.GetKeyDown("e"))
         {
             urata.GetComponent<Animator>().Play("door animation");
+        }
+        else if (Input.GetKeyDown("f"))
+        {
             urata.GetComponent<Animator>().Play("New State");
         }
     }
