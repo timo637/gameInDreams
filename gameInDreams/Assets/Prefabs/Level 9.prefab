@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758954182381685308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -35, z: 0}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,8 +170,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.396696, y: 1, z: 2.3315363}
-  m_Center: {x: -0.059052773, y: 0, z: 0.12311157}
+  m_Size: {x: 2.396696, y: 21.861317, z: 2.3315363}
+  m_Center: {x: -0.05905273, y: -0.91184425, z: 0.12311157}
 --- !u!114 &758954182381685305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a434d811162b447997c9c6d22c61ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportTo: {x: 0, y: 3, z: 0}
+  teleportTo: {x: 0, y: 10, z: 0}
 --- !u!1 &758954182623457897
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238884343277330420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: -0.6847143, z: 2}
+  m_LocalPosition: {x: -2, y: -50, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30296,7 +30296,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 0
+  m_VersionIndex: 6
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
