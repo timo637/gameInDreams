@@ -1152,15 +1152,11 @@ MonoBehaviour:
   panelLevelCompleted: {fileID: 768331872}
   panelGameOver: {fileID: 681349153}
   levels:
-  - {fileID: 3735081913772144550, guid: c170d81af08b2be428d21467caa59c1d, type: 3}
+  - {fileID: 3735081913772144550, guid: 0091e944228111d4e97ca1ddd3874336, type: 3}
   - {fileID: 3735081913772144550, guid: e1a688d1861f41a49855584ebc3ff793, type: 3}
   - {fileID: 3735081913772144550, guid: 81fa1b56572149f4484eb9bd4ac97dd0, type: 3}
   - {fileID: 3735081913772144550, guid: af2043a1cfd8c4c4abb84a778000c87a, type: 3}
   - {fileID: 3735081913772144550, guid: c170d81af08b2be428d21467caa59c1d, type: 3}
-  - {fileID: 3735081913772144550, guid: 02c9532aecb2e934b8998fb244a713ad, type: 3}
-  - {fileID: 3735081913772144550, guid: 02c9532aecb2e934b8998fb244a713ad, type: 3}
-  - {fileID: 3735081913772144550, guid: 02c9532aecb2e934b8998fb244a713ad, type: 3}
-  - {fileID: 3735081913772144550, guid: 02c9532aecb2e934b8998fb244a713ad, type: 3}
   - {fileID: 3735081913772144550, guid: 02c9532aecb2e934b8998fb244a713ad, type: 3}
   nearTheBed: 0
 --- !u!4 &1456997258
