@@ -12,7 +12,7 @@ public class script : MonoBehaviour
         {
             urata.GetComponent<Animator>().Play("door animation");
         }
-        else if (Input.GetKeyDown("f"))
+        else if (Input.GetKeyDown("3"))
         {
             urata.GetComponent<Animator>().Play("New State");
         }

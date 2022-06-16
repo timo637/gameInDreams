@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] levels;
     public bool nearTheBed = false;
+    public bool nearTheButton = false;
+    public GameObject vrata;
 
     public static GameManager Instance { get; private set; }
 
@@ -91,8 +93,8 @@ public class GameManager : MonoBehaviour
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
-                _currentPlayer.transform.position = _currentPlayer.transform.position + GameObject.FindWithTag("spawn").transform.position;
-                Debug.Log(_currentPlayer.transform.position);
+                //_currentPlayer.transform.position = _currentPlayer.transform.position + GameObject.FindWithTag("spawn").transform.position;
+                //Debug.Log(_currentPlayer.transform.position);
                 break;
             case State.LEVELCOMPLETED:
                 panelLevelCompleted.SetActive(true);
@@ -105,8 +107,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     _currentLevel = Instantiate(levels[Level-1]);
-                    Debug.Log(_currentPlayer.transform.position);
-                    Debug.Log(GameObject.FindWithTag("spawn").transform.position);
+                    //Debug.Log(_currentPlayer.transform.position);
+                    //Debug.Log(GameObject.FindWithTag("spawn").transform.position);
                     //_currentPlayer.transform.position = _currentPlayer.transform.position + GameObject.FindWithTag("spawn").transform.position;
                     //Debug.Log(_currentPlayer.transform.position);
                     SwitchState(State.PLAY);
@@ -125,12 +127,34 @@ public class GameManager : MonoBehaviour
         {
             notificationText.text = "Press 'F' to go to sleep.";
         }
+        else if (nearTheButton)
+        {
+            notificationText.text = "Probably 'F'.";
+        }
         else
         {
             notificationText.text = "";
         }
 
         if (Input.GetKeyDown("f") && Level<levels.Length && nearTheBed)
+        {
+            Destroy(_currentLevel);
+            _currentLevel = Instantiate(levels[Level]);
+            Level += 1;
+        }
+
+        if (Input.GetKeyDown("f") && nearTheButton)
+        {
+            CharacterController cc = _currentPlayer.GetComponent<CharacterController>();
+            cc.enabled = false;
+            _currentPlayer.transform.position = _currentPlayer.transform.position + new Vector3(0, -0.399f, 5014.6f);
+            cc.enabled = true;
+
+            vrata = GameObject.Find("Door (1)");
+            vrata.GetComponent<Animator>().Play("New State");
+        }
+
+        if (Input.GetKeyDown("t") && Level < levels.Length)
         {
             Destroy(_currentLevel);
             _currentLevel = Instantiate(levels[Level]);
@@ -157,6 +181,14 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     nearTheBed = false;
+                };
+                if (Vector3.Distance(_currentPlayer.transform.position, _currentLevel.transform.GetChild(_currentLevel.transform.childCount - 2).position) < 1f && Level == 5)
+                {
+                    nearTheButton = true;
+                }
+                else
+                {
+                    nearTheButton = false;
                 };
                 if (LivesRemaining == 0)
                 {
